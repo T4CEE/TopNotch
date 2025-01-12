@@ -10,12 +10,14 @@ import AboutPage from './components/AboutPage'
 import HomePage from './components/HomePage'
 import Faqs from './components/Faq'
 import ContactUs from './components/ContactUs'
+import ScrollToTop from './ScrollToTop';
 
 
 function App() {
 
   return (
     <div className='overflow-hidden'>
+       <ScrollToTop>
       <Navbar />
       <Routes>
       <Route path="/" element={ <HomePage />} />
@@ -23,6 +25,7 @@ function App() {
       <Route path="/faqs" element={ <Faqs />} />
       <Route path="/contact-us" element={ <ContactUs />} />
       </Routes>
+       </ScrollToTop>
     </div>
     
   )
