@@ -1,4 +1,3 @@
-import React from 'react'
 import BorderlessPayment from './BorderlessPayment'
 import FlexOne from './FlexOne'
 import FlexTwo from './FlexTwo'
