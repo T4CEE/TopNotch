@@ -1,7 +1,25 @@
 import BlackLogo from '@/assets/topnotchlogoblack.png'
+
+import { FaFacebook } from "react-icons/fa";
+import { AiFillInstagram } from "react-icons/ai";
+import { FaSquareXTwitter } from "react-icons/fa6";
+import { IoLogoYoutube } from "react-icons/io";
+
 const Footer = () => {
     return (
-        <div>
+        <div className='bg-[#005288]'>
+            <div className='bg-gray-100 px-16 py-6 '>
+                <div className='flex gap-x-2'>
+                    <div><h1 className='font-bold text-[17px]'>Connect to FEMA</h1></div>
+                    <div className='flex gap-x-1 text-[25px] ml-3'>
+
+                        <a target="_blank" rel="noopener noreferrer" href='https://www.facebook.com/FEMA/?ref=bookmarks'><FaFacebook /></a>
+                        <a target="_blank" rel="noopener noreferrer" href='https://www.instagram.com/fema'><AiFillInstagram /></a>
+                        <a target="_blank" rel="noopener noreferrer" href='https://x.com/fema'><FaSquareXTwitter /></a>
+                        <a target="_blank" rel="noopener noreferrer" href='https://www.youtube.com/fema'><IoLogoYoutube /></a>
+                    </div>
+                </div>
+            </div>
             <div className="flex flex-col md:flex-row justify-between mt-24 md:mt-0 md:px-[200px]">
                 <div className='flex flex-row-2 gap-x-9 md:gap-x-48 px-8'>
                 <div className="flex flex-col leading-loose">

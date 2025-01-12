@@ -11,6 +11,7 @@ import HomePage from './components/HomePage'
 import Faqs from './components/Faq'
 import ContactUs from './components/ContactUs'
 import ScrollToTop from './ScrollToTop';
+import Footer from './components/Footer'
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       <Route path="/faqs" element={ <Faqs />} />
       <Route path="/contact-us" element={ <ContactUs />} />
       </Routes>
+      <Footer />
        </ScrollToTop>
     </div>
     

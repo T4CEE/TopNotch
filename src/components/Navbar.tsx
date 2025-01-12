@@ -67,7 +67,7 @@ const Navbar = () => {
 
             {isDropdownVisible && (
               <div
-                className=" bg-[#0D0D2B] p-5 top-[78px] right-[-12px] w-[200px] h-[250px] absolute"
+                className=" bg-[#002b47] p-5 top-[79px] right-[-12px] w-[200px] h-[250px] absolute"
                 id="dropdown"
               >
                 <div className=" pl-2 text-[20px] font-bold text-white">
@@ -76,7 +76,7 @@ const Navbar = () => {
                       <li className=" hover:underline mb-6">About</li>
                       </Link>
                       <Link to='/faqs'>
-                      <li className=" hover:underline">FAQs</li>
+                      <li className=" hover:underline mb-6">FAQs</li>
                       </Link>
                       <Link to="/contact-us">
                       <li className=" hover:underline">Contact Us</li>
