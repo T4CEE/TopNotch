@@ -46,7 +46,7 @@ const SecondPage = () => {
         className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
       />
       <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700 mt-4">
-        Enter Home Address
+        Home Address
       </label>
       <input
         type="text"
@@ -54,6 +54,17 @@ const SecondPage = () => {
         // value={zipCode}
         onChange={handleChange}
         placeholder="Enter Home Address"
+        className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+      />
+      <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700 mt-4">
+        Email Address
+      </label>
+      <input
+        type="text"
+        id="Email Address"
+        // value={zipCode}
+        onChange={handleChange}
+        placeholder="Enter Email Address"
         className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
       />
       <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700 mt-4">

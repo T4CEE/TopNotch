@@ -16,6 +16,9 @@ import Verified from './components/verified'
 import SecondPage from './components/SecondPage'
 import ThirdSelection from './components/ThirdPage'
 import FourthSelection from './FourthSelection'
+import DisasterConfirmation from './components/DisasterConfirmation'
+import PrivacyActStatement from './components/PrivacyActStatement'
+import CongratulationsPage from './components/Congratulation'
 
 
 function App() {
@@ -33,6 +36,9 @@ function App() {
         <Route path='/secondpage' element={<SecondPage />} />
         <Route path='/thirdselection' element={<ThirdSelection />} />
         <Route path='/fourthselection' element={<FourthSelection />} />
+        <Route path='/disasterconfirmation' element={<DisasterConfirmation />} />
+        <Route path='/privacystatementact' element={<PrivacyActStatement />} />
+        <Route path='/congrats' element={<CongratulationsPage />} />
       </Routes>
       <Footer />
        </ScrollToTop>

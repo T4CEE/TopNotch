@@ -43,7 +43,7 @@ const Navbar = () => {
       <div className="fixed z-20 w-full bg-[#005288] md:h-[60px] md:pt-1 md:mt-5">
         <div className="flex flex-row  md:justify-between">
         <div className=" flex w-full my-auto px-3 md:px-14 md:pt-1">
-        <div className="flex flex-row md:justify-between mt-2 md:ml-12">
+        <div className="flex flex-row md:justify-between mt-6 md:mt-2 md:ml-12">
           <Link to='/'>
           <div className="flex font-semibold text-xl py-auto">
             <h1 className="text-white">Disaster</h1>
@@ -73,7 +73,7 @@ const Navbar = () => {
               className=" mt-7 h-[50px]"
               onClick={toggleDropDown}
             >
-              <span className="material-symbols-outlined text-black pr-4 mt-2">
+              <span className="material-symbols-outlined text-white pr-4 mt-2">
                 <div className="text-[35px]">menu</div>
               </span>
             </div>

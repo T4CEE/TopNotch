@@ -1,6 +1,7 @@
 import { FaHouseUser } from "react-icons/fa";
 import { MdOutlineLocalGroceryStore } from "react-icons/md";
 import { SlWallet } from "react-icons/sl";
+import { Link } from "react-router-dom";
 
 const FourthSelection = () => {
   return (
@@ -212,6 +213,14 @@ const FourthSelection = () => {
         </p>
       </div>
     </div>
+    <Link to='/disasterconfirmation'>
+    <button
+        type="submit"
+        className="mt-6 mb-4 w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
+      >
+        Next
+      </button>
+    </Link>
     </div>
   )
 }
