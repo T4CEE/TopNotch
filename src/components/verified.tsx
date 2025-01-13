@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import ReCAPTCHA from 'react-google-recaptcha';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import { IoShieldHalf } from "react-icons/io5";
 // import Upload from "../Images/upload.png";
 // import { ref, uploadBytes } from "firebase/storage";
