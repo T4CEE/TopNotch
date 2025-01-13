@@ -17,7 +17,6 @@ const Navbar = () => {
   }
 
   useEffect(() => {
-    // Close dropdown when clicking outside of it
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsDropdownVisible(false);
@@ -40,18 +39,32 @@ const Navbar = () => {
         </h1>
         </div>
         </div>
-      <div className="fixed z-20 w-full bg-white md:h-[70px] md:pt-1 md:mt-4">
+      <div className="fixed z-20 w-full bg-white md:h-[60px] md:pt-1 md:mt-5">
         <div className="flex flex-row  md:justify-between">
-        <div className=" w-full bg-white my-auto px-3 md:px-14 md:pt-1">
+        <div className=" flex w-full bg-white my-auto px-3 md:px-14 md:pt-1">
         <div className="flex flex-row md:justify-between mt-2">
           <Link to='/'>
-          <div className="flex font-semibold text-xl py-auto">
+          <div className="flex font-semibold text-xl py-auto mt-3">
             <h1 className="text-black">Disaster</h1>
             <h1 className="text-blue-600"> Assistance </h1>
             <GoDotFill className="text-red-700 mt-2" />
             <h1 className="text-black"> gov</h1>
           </div>
           </Link>
+        </div>
+        <div className="hidden md:block">
+
+        <div className=" flex pl-2 text-[20px] font-bold text-black">
+                    <Link to='/about'>
+                      <h1 className=" hover:underline mb-6">About</h1>
+                      </Link>
+                      <Link to='/faqs'>
+                      <h1 className=" hover:underline mb-6">FAQs</h1>
+                      </Link>
+                      <Link to="/contact-us">
+                      <h1 className=" hover:underline">Contact Us</h1>
+                      </Link>
+                </div>
         </div>
       </div>
           {/* Toggle button */}
@@ -67,11 +80,11 @@ const Navbar = () => {
 
             {isDropdownVisible && (
               <div
-                className=" bg-[#002b47] p-5 top-[79px] right-[-12px] w-[200px] h-[250px] absolute"
+                className=" bg-[#002b47] p-5 top-[79px] right-[-12px] w-[200px] h-[680px] absolute"
                 id="dropdown"
               >
                 <div className=" pl-2 text-[20px] font-bold text-white">
-                  <ul>
+                  <ul onClick={toggleDropDown}>
                     <Link to='/about'>
                       <li className=" hover:underline mb-6">About</li>
                       </Link>

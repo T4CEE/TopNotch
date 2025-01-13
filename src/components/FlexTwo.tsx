@@ -34,7 +34,7 @@ const FlexTwo = () => {
   ];
 
   return (
-    <div className="max-w-lg mx-auto bg-white rounded-lg shadow-md p-6 mx-2 my-2">
+    <div className="max-w-lg bg-white rounded-lg shadow-md p-6 mx-2 my-2">
       <h1 className="text-xl font-bold">APPLICATION DEADLINES</h1>
       <p className="text-sm text-gray-600 mt-2">
         FEMA deadlines to apply for the disasters in this list. Disasters with
