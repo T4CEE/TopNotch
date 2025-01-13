@@ -31,30 +31,30 @@ const Navbar = () => {
   }, [dropdownRef]);
 
   return (
-    <nav>
+    <nav className="">
       <div className="fixed z-30 w-full text-[10px] pl-1 pt-1 bg-gray-100">
         <div className="flex">
         <Flag className='w-9' code="US" /> <h1 className="ml-1">
       An official website of the United States government.
         </h1>
         </div>
+
         </div>
-      <div className="fixed z-20 w-full bg-white md:h-[60px] md:pt-1 md:mt-5">
+      <div className="fixed z-20 w-full bg-[#005288] md:h-[60px] md:pt-1 md:mt-5">
         <div className="flex flex-row  md:justify-between">
-        <div className=" flex w-full bg-white my-auto px-3 md:px-14 md:pt-1">
-        <div className="flex flex-row md:justify-between mt-2">
+        <div className=" flex w-full my-auto px-3 md:px-14 md:pt-1">
+        <div className="flex flex-row md:justify-between mt-2 md:ml-12">
           <Link to='/'>
-          <div className="flex font-semibold text-xl py-auto mt-3">
-            <h1 className="text-black">Disaster</h1>
+          <div className="flex font-semibold text-xl py-auto">
+            <h1 className="text-white">Disaster</h1>
             <h1 className="text-blue-600"> Assistance </h1>
             <GoDotFill className="text-red-700 mt-2" />
-            <h1 className="text-black"> gov</h1>
+            <h1 className="text-white"> gov</h1>
           </div>
           </Link>
         </div>
         <div className="hidden md:block">
-
-        <div className=" flex pl-2 text-[20px] font-bold text-black">
+        <div className=" flex pl-2 text-[16px] font-bold text-white gap-x-6 pt-3  ml-14">
                     <Link to='/about'>
                       <h1 className=" hover:underline mb-6">About</h1>
                       </Link>

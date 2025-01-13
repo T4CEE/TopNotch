@@ -11,7 +11,7 @@ const Footer = () => {
     return (
         <div className='bg-[#005288]'>
             <div className='bg-gray-100 px-4 md:px-16 py-6 '>
-                <div className='flex gap-x-2'>
+                <div className='flex md:justify-end gap-x-2'>
                     <div><h1 className='font-bold text-[17px]'>Connect to FEMA</h1></div>
                     <div className='flex gap-x-1 text-[25px] ml-3'>
 

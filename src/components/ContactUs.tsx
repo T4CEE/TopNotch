@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom'
 const ContactUs = () => {
   return (
-    <div className="text-black mt-[100px] px-4">
+    <div className="text-black mt-[120px] px-4 md:px-28">
                 <div className=' w-full md:w-[800px] xl:w-[900px]'>
             <div>
               <h1 className=' leading-3 font-bold text-[30px] xl:text-[67px]'> Contact Us</h1>

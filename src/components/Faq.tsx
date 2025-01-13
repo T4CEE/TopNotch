@@ -2,10 +2,10 @@ import {Link} from 'react-router-dom'
 
 const Faq = () => {
   return (
-    <div className="text-black mt-[100px] px-4">
+    <div className="text-black mt-[120px] px-4 md:px-28">
                 <div className=' w-full md:w-[800px] xl:w-[900px]'>
             <div>
-              <h1 className=' leading-8 md:leading-3 font-bold text-[30px] xl:text-[67px]'> Frequently Asked Questions (FAQs)</h1>
+              <h1 className=' leading-8 md:leading-[70px] font-bold text-[30px] xl:text-[67px]'> Frequently Asked Questions (FAQs)</h1>
               <h1 className='mt-2 '>
               Got questions? This page offers a list of frequently asked questions where you may be able to find answers. Just click on a question to see the answer. If you can’t find the answer you're looking for, please 
               <Link className=' text-blue-600 ml-1 underline' to="/contact-us">
