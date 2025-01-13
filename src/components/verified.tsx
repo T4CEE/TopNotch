@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import ReCAPTCHA from 'react-google-recaptcha';
+import { Link } from "react-router-dom";
 // import { IoShieldHalf } from "react-icons/io5";
 // import Upload from "../Images/upload.png";
 // import { ref, uploadBytes } from "firebase/storage";
@@ -22,12 +23,12 @@ const Verified = () => {
         setCaptchaValue(value);
     }
 
-    const handlesubmit = () => {
-        if (!captchaValue) {
-            alert("Please complete the reCAPTCHA");
-            return;
-        }
-    }
+    // const handlesubmit = () => {
+    //     if (!captchaValue) {
+    //         alert("Please complete the reCAPTCHA");
+    //         return;
+    //     }
+    // }
 
 
 
@@ -88,7 +89,9 @@ const Verified = () => {
                 onChange={handleCaptchaChange}
                 className="ml-3"
             />
-            <button onClick={handlesubmit} className="p-4 bg-blue-300 text-white bg-[#005288]"> Submit</button>
+            <Link to='/secondpage'>
+            <button  className="p-4 bg-blue-300 text-white bg-[#005288]"> Submit</button>
+            </Link>
             
         </div>
     );
