@@ -73,8 +73,8 @@ const Navbar = () => {
               className=" mt-7 h-[50px]"
               onClick={toggleDropDown}
             >
-              <span className="material-symbols-outlined text-black pr-4">
-                <div className="text-4xl">menu</div>
+              <span className="material-symbols-outlined text-black pr-4 mt-2">
+                <div className="text-[35px]">menu</div>
               </span>
             </div>
 

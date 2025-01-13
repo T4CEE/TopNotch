@@ -1,5 +1,6 @@
 import NTAS from '@/assets/NTAS.png'
 import FemaLogo from '@/assets/fema logo.png'
+import {Link} from 'react-router-dom'
 
 import { FaFacebook } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
@@ -41,7 +42,9 @@ const Footer = () => {
 
                 </div>
                 <div className="flex flex-col leading-loose">
+                    <Link to="/about">
                     <h1> About Us </h1>
+                    </Link>
                     <h1> Privacy </h1>
                     <h1> No FEAR Act </h1>
                     <h1> SAM.gov - Assistance</h1>
