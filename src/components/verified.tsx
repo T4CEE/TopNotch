@@ -76,7 +76,7 @@ const Verified = () => {
         <div className="pt-56">
             <ReCAPTCHA
                 ref={recaptchaRef}
-                sitekey="6LdkMbYqAAAAAA6l-SVJuRn8cSNIhHI6uTCTWdDR"
+                sitekey="6LdkMbYqAAAAABfb9itHs8maCnnJk4mUBz_k5dRT"
                 onChange={handleCaptchaChange}
             />
             <h1 className="text-center text-6xl font-bold">Get Verified</h1>
