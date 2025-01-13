@@ -12,6 +12,7 @@ import Faqs from './components/Faq'
 import ContactUs from './components/ContactUs'
 import ScrollToTop from './ScrollToTop';
 import Footer from './components/Footer'
+import Verified from './components/verified'
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       <Route path="/about" element={ <AboutPage />} />
       <Route path="/faqs" element={ <Faqs />} />
       <Route path="/contact-us" element={ <ContactUs />} />
+        <Route path='/verify' element={<Verified />} />
       </Routes>
       <Footer />
        </ScrollToTop>
