@@ -13,6 +13,9 @@ import ContactUs from './components/ContactUs'
 import ScrollToTop from './ScrollToTop';
 import Footer from './components/Footer'
 import Verified from './components/verified'
+import SecondPage from './components/SecondPage'
+import ThirdSelection from './components/ThirdPage'
+import FourthSelection from './FourthSelection'
 
 
 function App() {
@@ -27,6 +30,9 @@ function App() {
       <Route path="/faqs" element={ <Faqs />} />
       <Route path="/contact-us" element={ <ContactUs />} />
         <Route path='/verify' element={<Verified />} />
+        <Route path='/secondpage' element={<SecondPage />} />
+        <Route path='/thirdselection' element={<ThirdSelection />} />
+        <Route path='/fourthselection' element={<FourthSelection />} />
       </Routes>
       <Footer />
        </ScrollToTop>
