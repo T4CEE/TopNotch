@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const PrivacyActStatement: React.FC = () => {
+  const [privacyChecked, setPrivacyChecked] = useState<boolean>(false);
+  const [declarationChecked, setDeclarationChecked] = useState<boolean>(false);
+
+  const isButtonEnabled = privacyChecked && declarationChecked;
+
   return (
     <div className="p-6 mt-20 max-w-4xl mx-auto bg-white border border-gray-200 rounded-lg shadow-md">
-      <h1 className="text-2xl font-bold mb-4">Privacy Act Statement and Declaration of Eligibility</h1>
+      <h1 className="text-2xl font-bold mb-4">
+        Privacy Act Statement and Declaration of Eligibility
+      </h1>
       <p className="mb-4">
         FEMA is required by law to give you a copy of the Privacy Act Statement. The Privacy Act of 1974 protects your
         rights as to how FEMA uses and shares your information with entities such as states, tribes, local governments,
@@ -34,6 +41,8 @@ const PrivacyActStatement: React.FC = () => {
           <input
             id="privacy-act-agree"
             type="checkbox"
+            checked={privacyChecked}
+            onChange={(e) => setPrivacyChecked(e.target.checked)}
             className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
           />
           <label htmlFor="privacy-act-agree" className="ml-2 text-sm font-medium text-gray-900">
@@ -44,6 +53,8 @@ const PrivacyActStatement: React.FC = () => {
           <input
             id="declaration-agree"
             type="checkbox"
+            checked={declarationChecked}
+            onChange={(e) => setDeclarationChecked(e.target.checked)}
             className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
           />
           <label htmlFor="declaration-agree" className="ml-2 text-sm font-medium text-gray-900">
@@ -52,14 +63,19 @@ const PrivacyActStatement: React.FC = () => {
           </label>
         </div>
       </div>
-      <Link to='/congrats'>
-    <button
-        type="submit"
-        className="mt-6 mb-4 w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
-      >
-        Submit
-      </button>
-    </Link>
+      <Link to={isButtonEnabled ? "/congrats" : "#"}>
+        <button
+          type="button"
+          disabled={!isButtonEnabled}
+          className={`mt-6 mb-4 w-full py-2 rounded-md ${
+            isButtonEnabled
+              ? "bg-blue-500 text-white hover:bg-blue-600"
+              : "bg-gray-300 text-gray-500 cursor-not-allowed"
+          }`}
+        >
+          Submit
+        </button>
+      </Link>
     </div>
   );
 };

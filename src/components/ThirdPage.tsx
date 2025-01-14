@@ -1,7 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import AreaSelection from "./AreaSelection";
+import { useNavigate } from "react-router-dom";
 
 const ThirdSelection: React.FC = () => {
+  const [selectedDisaster, setSelectedDisaster] = useState<string | null>(null);
+  const navigate = useNavigate()
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedDisaster(e.target.value);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
+    if (selectedDisaster) {
+      navigate('/fourthselection')
+    } else {
+      alert("Please select a disaster before proceeding.");
+    }
+  };
+
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md mt-20">
       <h1 className="text-2xl font-bold mb-2">
@@ -22,6 +40,8 @@ const ThirdSelection: React.FC = () => {
             name="disaster"
             className="mt-1 mr-3"
             value="wildfires"
+            checked={selectedDisaster === "wildfires"}
+            onChange={handleChange}
           />
           <div>
             <h2 className="font-bold">
@@ -39,7 +59,13 @@ const ThirdSelection: React.FC = () => {
       <AreaSelection />
       <button
         type="submit"
-        className="mt-6 mb-4 w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
+        onClick={handleSubmit}
+        disabled={!selectedDisaster}
+        className={`mt-6 mb-4 w-full py-2 rounded-md text-white ${
+          selectedDisaster
+            ? "bg-blue-500 hover:bg-blue-600"
+            : "bg-gray-400 cursor-not-allowed"
+        }`}
       >
         Next
       </button>

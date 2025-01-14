@@ -48,7 +48,7 @@ const Navbar = () => {
           <div className="flex font-semibold text-xl py-auto">
             <h1 className="text-white">Disaster</h1>
             <h1 className="text-blue-600"> Assistance </h1>
-            <GoDotFill className="text-red-700 mt-2" />
+            <GoDotFill className="text-red-700 mt-[5px] md:mt-2" />
             <h1 className="text-white"> gov</h1>
           </div>
           </Link>
