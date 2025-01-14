@@ -95,10 +95,10 @@ const DisasterConfirmation: React.FC = () => {
             onChange={() => setIsChecked(!isChecked)}
             className="h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
           />
+        </label>
           <span className="ml-2 text-gray-800 font-semibold">
             Confirm this date. <span className="text-red-500">*</span>
           </span>
-        </label>
       </div>
 
       <p className="block mt-4 text-lg text-gray-800 font-semibold">
